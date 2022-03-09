@@ -33,5 +33,3 @@ git add 'arquivo_x'
 ```bash
 git commit -m "digite um texto aqui"
 ```
-
-Isso é um teste......
