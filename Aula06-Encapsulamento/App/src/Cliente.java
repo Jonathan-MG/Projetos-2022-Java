@@ -1,3 +1,5 @@
+package App.src;
+
 public class Cliente {
     private String cpf;
     private String nome;

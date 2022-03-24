@@ -1,3 +1,5 @@
+package App.src;
+
 public class Conta {
     // Atributos da classe
     private int numero;
