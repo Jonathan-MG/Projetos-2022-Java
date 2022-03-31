@@ -6,29 +6,30 @@ public class Conta {
     private double saldo;
     private Usuario usuario;
 
-    public Conta (String idConta, Usuario usuario){
+    public Conta(String idConta, Usuario usuario) {
         this.usuario = usuario;
         this.idConta = idConta;
         saldo = 0;
     }
 
-    public Usuario getUsuario(){
+    public Usuario getUsuario() {
         return usuario;
     }
-    
-    public double getSaldo (){
+
+    public double getSaldo() {
         return this.saldo;
     }
 
-    public String getId (){
+    public String getId() {
         return this.idConta;
     }
 
     public String visualizarSaldo() {
         return String.format("R$ %.2f", saldo);
     }
-    
-    public String toString(){
-        return "\n" + " Conta Numero: " + idConta + "\n Cliente: " + usuario.getNome() + "\n e-mail: " + usuario.getEmail() + "\n Saldo: " + visualizarSaldo() + "\n";
+
+    public String toString() {
+        return "\n" + " Conta Numero: " + idConta + "\n Cliente: " + usuario.getNome() + "\n e-mail: "
+                + usuario.getEmail() + "\n Saldo: " + visualizarSaldo() + "\n";
     }
 }

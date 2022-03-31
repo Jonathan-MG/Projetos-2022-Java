@@ -5,7 +5,7 @@ public class Transacoes {
     private Conta conta;
     private double valor;
 
-    public static void gerarQRCode (double valor, Conta conta){
+    public static void gerarQRCode(double valor, Conta conta) {
         System.out.println(conta.getId() + ";" + conta.getUsuario().getNome() + ";" + valor);
         System.out.println();
     }
