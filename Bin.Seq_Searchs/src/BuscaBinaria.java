@@ -5,7 +5,7 @@ public class BuscaBinaria {
 
     public static void main(String[] args) throws Exception {
 
-        int n = 71;
+        int n = 99;
 
         System.out.println();
         System.out.println("------ Busca Sequencial ------");
@@ -16,7 +16,7 @@ public class BuscaBinaria {
             System.out.println("Valor encontrado na posição: " + indice);
             System.out.println("Total de comparações: " + nComp);
         } else {
-            System.out.println("Valor NÃO encontrado... " + indice);
+            System.out.println("Valor NÃO encontrado... ");
             System.out.println("Total de comparações: " + nComp);
         }
 
