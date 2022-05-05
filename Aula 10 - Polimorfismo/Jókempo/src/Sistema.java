@@ -4,13 +4,24 @@ public class Sistema {
     public static void rodar(){
         Jogada jogada1 = sortearJogada();
         Jogada jogada2 = sortearJogada();
-
         EnumJogadas resultado = avaliaJogadas(jogada1,jogada2);
-        
         System.out.println();
         System.out.println("Entre " + jogada1.getTipo() + " e " + jogada2.getTipo() + " o resultado e: " +resultado);
         System.out.println();
 
+        Jogada jogada3 = sortearJogada();
+        Jogada jogada4 = sortearJogada();
+        EnumJogadas resultado1 = avaliaJogadas(jogada3,jogada4);  
+        System.out.println();
+        System.out.println("Entre " + jogada3.getTipo() + " e " + jogada4.getTipo() + " o resultado e: " +resultado1);
+        System.out.println();
+
+        Jogada jogada5 = sortearJogada();
+        Jogada jogada6 = sortearJogada();
+        EnumJogadas resultado2 = avaliaJogadas(jogada5,jogada6);
+        System.out.println();
+        System.out.println("Entre " + jogada5.getTipo() + " e " + jogada6.getTipo() + " o resultado e: " +resultado2);
+        System.out.println();
     }
 
     private static Jogada sortearJogada(){
