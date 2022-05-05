@@ -1,5 +1,4 @@
 public class Spocky extends Jogada {
-
     public Spocky() {
         super(EnumJogadas.TESOURA,EnumJogadas.PEDRA);
     }
