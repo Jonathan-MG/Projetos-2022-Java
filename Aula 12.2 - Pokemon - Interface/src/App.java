@@ -12,7 +12,7 @@ public class App {
         pokemons.add(new PokemonAgua(7, "Squirtle", new Status(10, 5, 20, 5)));
 
         mostraPokemons(pokemons);
-        elovuirTodos(pokemons, new Status(1, 1, 1, 1));
+        evoluirTodos(pokemons, new Status(1, 1, 1, 1));
         mostraPokemons(pokemons);
     }
 
@@ -22,7 +22,7 @@ public class App {
         }
     }
 
-    public static void elovuirTodos(List<Pokemon> pokemons, Status status){
+    public static void evoluirTodos(List<Pokemon> pokemons, Status status){
         for (Pokemon pokemon : pokemons) {
             pokemon.evoluir(status);
         }
