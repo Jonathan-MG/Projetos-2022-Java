@@ -12,6 +12,6 @@ public abstract class Membro implements PostarMensagem {
 
     @Override
     public String toString() {
-        return "Membro [email=" + email + ", funcao=" + funcao + ", usuario=" + usuario + "]";
+        return "Membro [Usuario= " + usuario + ", email= " + email + ", Funcao= " + funcao + "]";
     }
 }

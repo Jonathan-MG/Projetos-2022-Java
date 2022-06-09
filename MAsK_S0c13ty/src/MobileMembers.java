@@ -7,7 +7,7 @@ public class MobileMembers extends Membro {
     @Override
     public String PostarMensagem(String status) {
         if (status == "Atividade Extra")
-            System.out.println("Happy_C0d1ng. Maskers");
+            System.out.println("Happy_C0d1ng.Maskers");
         else System.out.println("Happy Coding!");
         return null;
     }
