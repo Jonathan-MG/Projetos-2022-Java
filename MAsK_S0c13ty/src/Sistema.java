@@ -25,21 +25,20 @@ public class Sistema {
 
         System.out.println();
         System.out.println("Status Atual: " + status);
-        System.out.println();
         System.out.println("---------------------------------------------------------------------");
         ExibirMembros(MAsK_S0c13ty, status);
+        System.out.println();
         
         mudarTurno();
         System.out.println("Status Atual: " + status);
-        System.out.println();
         System.out.println("---------------------------------------------------------------------");
         ExibirMembros(MAsK_S0c13ty, status);
+        System.out.println();
 
         mudarTurno();
         MAsK_S0c13ty.remove(1);
         MAsK_S0c13ty.remove(5);
         System.out.println("Status Atual: " + status);
-        System.out.println();
         System.out.println("---------------------------------------------------------------------");
         ExibirMembros(MAsK_S0c13ty, status);
         System.out.println();
