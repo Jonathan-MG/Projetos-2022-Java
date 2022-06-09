@@ -1,6 +1,6 @@
 public class BigBrothers extends Membro {
 
-    public BigBrothers(String usuario, String email, String funcao) {
+    public BigBrothers(String usuario, String email) {
         super(usuario, email, "Big Brother");
     }
     

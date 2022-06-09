@@ -1,6 +1,6 @@
 public class ScriptGuys extends Membro{
 
-    public ScriptGuys(String usuario, String email, String funcao) {
+    public ScriptGuys(String usuario, String email) {
         super(usuario, email, "Script Guy");
     }
 

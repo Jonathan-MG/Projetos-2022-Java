@@ -1,6 +1,6 @@
 public class HeavyLifter extends Membro {
 
-    public HeavyLifter(String usuario, String email, String funcao) {
+    public HeavyLifter(String usuario, String email) {
         super(usuario, email, "Heavy Lifter");
     }
 
