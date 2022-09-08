@@ -1,5 +1,5 @@
-from item import Item
-from carrinho import Carrinho
+from Modelos.Produtos.item import Item
+from Modelos.Carrinho.carrinho import Carrinho
 
 item_1 = Item('Carregador','Carrega iPhone e Android',200.0)
 item_2 = Item(valor = 350.0, nome = 'God of War', descricao = 'Kleiton - O Bom de Guerra')
