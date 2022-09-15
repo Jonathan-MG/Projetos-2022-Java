@@ -1,3 +1,5 @@
+from src.models.payments.pagamento import Pagamento
+
 class Cartao(Pagamento):
     def __init__(self, numero,titular,validade,cvv):
         self._numero = numero

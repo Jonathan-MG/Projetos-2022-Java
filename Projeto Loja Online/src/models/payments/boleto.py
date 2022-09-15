@@ -1,7 +1,6 @@
 from datetime import date
+from src.models.payments.pagamento import Pagamento
 
-
-from datetime import date
 class Boleto(Pagamento):
     def __init__(self,valor,dias_para_vencimento = 0):
         self._valor = valor

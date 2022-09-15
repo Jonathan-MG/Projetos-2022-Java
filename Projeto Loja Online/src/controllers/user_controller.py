@@ -1,4 +1,4 @@
-from models.user import User
+from models.users import User
 
 class UserController():
     def __init__(self) -> None:
