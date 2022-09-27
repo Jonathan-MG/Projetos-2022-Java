@@ -1,6 +1,7 @@
+from random import randint
 import streamlit as st
 
-st.set_page_config(page_title="Snoteam",layout="wide",initial_sidebar_state="collapsed",menu_items=None)
+st.set_page_config(page_title="Snoteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
 
 def check_password():
     """Returns `True` if the user had a correct password."""
@@ -42,7 +43,7 @@ def check_password():
         with col2:
             if st.button(label="Esqueci a senha"):
                 st.write("Redirecionando...")
-        st.error("😕 User not known or password incorrect")
+        st.error("Usuário/senha incorreto.")
         return False
     
     else:
@@ -56,36 +57,45 @@ if check_password():
         st.subheader("Destaques")
         col1,col2,col3 = st.columns(3,gap = "small")
         with col1:
-            st.image("./assets/Cover_COD_MWII.jpg")
-        
+            st.image("./assets/Cover_COD_MWII.jpg",caption="R$ 350,00")
+            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
+                st.write("Redirecionando...")
         with col2:
-            st.image("./assets/Cover_Battlefield_2042.jpg")
-        
+            st.image("./assets/Cover_Battlefield_2042.jpg",caption="R$ 125,00")
+            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
+                st.write("Redirecionando...")
         with col3:
-            st.image("./assets/Cover_Cult_of_the_Lamb.jpg")
-        
+            st.image("./assets/Cover_Cult_of_the_Lamb.jpg",caption="R$ 100,00")
+            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
+                st.write("Redirecionando...")
         st.subheader("Ofertas")
         col4,col5,col6 = st.columns(3,gap = "small")
         with col4:
-            st.image("./assets/Cover_Red_Dead_2.jpg")
-        
+            st.image("./assets/Cover_Red_Dead_2.jpg",caption="R$ 75,00")
+            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
+                st.write("Redirecionando...")
         with col5:
-            st.image("./assets/Cover_GTA_V.jpg")
-        
+            st.image("./assets/Cover_GTA_V.jpg",caption="R$ 75,00")
+            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
+                st.write("Redirecionando...")
         with col6:
-            st.image("./assets/Cover_God_of_War.jpg")
-        
+            st.image("./assets/Cover_God_of_War.jpg",caption="R$ 200,00")
+            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
+                st.write("Redirecionando...")
         st.subheader("Pre-Order")
         col7,col8,col9 = st.columns(3,gap = "small")
         with col7:
-            st.image("./assets/Cover_FFVII.jpg")
-        
+            st.image("./assets/Cover_FFVII.jpg",caption="R$ 250,00")
+            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
+                st.write("Redirecionando...")
         with col8:
-            st.image("./assets/Cover_Spider_Man.jpg")
-        
+            st.image("./assets/Cover_Spider_Man.jpg",caption="R$ 350,00")
+            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
+                st.write("Redirecionando...")
         with col9:
-            st.image("./assets/Cover_Overwatch.jpg")
-    
+            st.image("./assets/Cover_Overwatch.jpg",caption="R$ 100,00")
+            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
+                st.write("Redirecionando...")
     with carrinho:
         col1,col2 = st.columns([3,1],gap = "small")
         with col1:
