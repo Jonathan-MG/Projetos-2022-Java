@@ -1,24 +1,56 @@
 import time
 import streamlit as st
 
-st.set_page_config(page_title="Login",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
-st.title("Login")
-user_email = st.text_input(label="Digite seu E-mail:")
+titulo = "Login"
+st.set_page_config(page_title=titulo,layout="centered",initial_sidebar_state="collapsed",menu_items=None)
+st.title(titulo)
+def check_password():
+    """Returns `True` if the user had a correct password."""
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        if (
+            st.session_state["username"] in st.secrets["passwords"]
+            and st.session_state["password"]
+            == st.secrets["passwords"][st.session_state["username"]]
+        ):
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # don't store username + password
+            del st.session_state["username"]
+        else:
+            st.session_state["password_correct"] = False
 
-user_password = st.text_input(label="Digite sua Senha:",
-type="password")
+    if "password_correct" not in st.session_state:
+        # First run, show inputs for username + password.
+        st.text_input(label="Digite seu E-mail:", key="username")
+        st.text_input(label="Digite sua Senha:", type="password", key="password")
+        col1,col2 = st.columns(spec=[1,10],gap="small")
+        with col1:    
+            if st.button(label="Login"):
+                password_entered()
+        with col2:
+            if st.button(label="Esqueci a senha"):
+                st.write("Redirecionando...")
+        return False
+    elif not st.session_state["password_correct"]:
+        # Password not correct, show input + error.
+        st.text_input(label="Digite seu E-mail:", key="username")
+        st.text_input(label="Digite sua Senha:", type="password", key="password")
+        col1,col2 = st.columns(spec=[1,10],gap="small")
+        with col1:    
+            if st.button(label="Login"):
+                password_entered()
+        with col2:
+            if st.button(label="Esqueci a senha"):
+                st.write("Redirecionando...")
+        st.error("😕 User not known or password incorrect")
+        return False
+    else:
+        # Password correct.
+        return True
 
-col1,col2 = st.columns(spec=[1,10],gap="small")
+if check_password():
+    destaques,lancamentos,ofertas,perfil = st.tabs(["Destaques","Lançamentos","Ofertas","Perfil"])
 
-with col1:    
-    if st.button(label="Login"):
-        st.write(user_email)
-        st.write(user_password)
-
-with col2:
-    if st.button(label="Esqueci a senha"):
-        st.write("Redirecionando...")
-    
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
