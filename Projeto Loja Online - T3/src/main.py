@@ -1,5 +1,16 @@
 from random import randint
+from models.products.item import Item
 import streamlit as st
+
+produtos = [Item("God of War","Pow Pá Morre.",200.00,"./assets/Cover_God_of_War.jpg"),
+            Item("Spider-Man","Tchi Mari Jane.",350.00,"./assets/Cover_Spider_Man.jpg"),
+            Item("Red Dead Redemption II","Tem sempre um trem Dutch.",75.00,"./assets/Cover_Red_Dead_2.jpg"),
+            Item("Grand Theft Auto V","Lester the Molester.",75.00,"./assets/Cover_GTA_V.jpg"),
+            Item("Final Fantasy VII Remake - Intergrade","Tifa.",250.00,"./assets/Cover_FFVII.jpg"),
+            Item("Overwatch","Ixcurrega.",100.00,"./assets/Cover_Overwatch.jpg"),
+            Item("Battlefield 2042","Todo bugado.",125.00,"./assets/Cover_Battlefield_2042.jpg"),
+            Item("Call of Duty MWII","Foge do Gás.",350.00,"./assets/Cover_COD_MWII.jpg"),
+            Item("Cult of the Lamb","Jesus é uma ovelha.",100.00,"./assets/Cover_Cult_of_the_Lamb.jpg"),]
 
 st.set_page_config(page_title="Snoteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
 
@@ -68,7 +79,6 @@ if check_password():
             st.image("./assets/Cover_Cult_of_the_Lamb.jpg",caption="R$ 100,00")
             if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
                 st.write("Redirecionando...")
-        st.subheader("Ofertas")
         col4,col5,col6 = st.columns(3,gap = "small")
         with col4:
             st.image("./assets/Cover_Red_Dead_2.jpg",caption="R$ 75,00")
@@ -82,7 +92,6 @@ if check_password():
             st.image("./assets/Cover_God_of_War.jpg",caption="R$ 200,00")
             if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
                 st.write("Redirecionando...")
-        st.subheader("Pre-Order")
         col7,col8,col9 = st.columns(3,gap = "small")
         with col7:
             st.image("./assets/Cover_FFVII.jpg",caption="R$ 250,00")
