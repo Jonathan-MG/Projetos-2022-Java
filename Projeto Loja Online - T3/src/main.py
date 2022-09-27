@@ -1,13 +1,30 @@
+import time
 import streamlit as st
 
+st.set_page_config(page_title="Login",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
 st.title("Login")
 user_email = st.text_input(label="Digite seu E-mail:")
 
 user_password = st.text_input(label="Digite sua Senha:",
 type="password")
+
+col1,col2 = st.columns(spec=[1,10],gap="small")
+
+with col1:    
+    if st.button(label="Login"):
+        st.write(user_email)
+        st.write(user_password)
+
+with col2:
+    if st.button(label="Esqueci a senha"):
+        st.write("Redirecionando...")
     
-if st.button(label="Login"):
-    print(st.write(user_email),"\n",st.write(user_password))
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 # with st.sidebar:
 #     with st.echo():
