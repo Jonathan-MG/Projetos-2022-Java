@@ -1,4 +1,3 @@
-import time
 import streamlit as st
 
 st.set_page_config(page_title="Snoteam",layout="wide",initial_sidebar_state="collapsed",menu_items=None)
@@ -55,40 +54,40 @@ if check_password():
     
     with loja:
         st.subheader("Destaques")
-        col1,col2,col3 = st.columns(3)
+        col1,col2,col3 = st.columns(3,gap = "small")
         with col1:
-            st.write("1")
+            st.image("./assets/Cover_COD_MWII.jpg")
         
         with col2:
-            st.write("2")
+            st.image("./assets/Cover_Battlefield_2042.jpg")
         
         with col3:
-            st.write("3")
+            st.image("./assets/Cover_Cult_of_the_Lamb.jpg")
         
         st.subheader("Ofertas")
-        col4,col5,col6 = st.columns(3)
+        col4,col5,col6 = st.columns(3,gap = "small")
         with col4:
-            st.write("1")
+            st.image("./assets/Cover_Red_Dead_2.jpg")
         
         with col5:
-            st.write("2")
+            st.image("./assets/Cover_GTA_V.jpg")
         
         with col6:
-            st.write("3")
+            st.image("./assets/Cover_God_of_War.jpg")
         
         st.subheader("Pre-Order")
-        col7,col8,col9 = st.columns(3)
+        col7,col8,col9 = st.columns(3,gap = "small")
         with col7:
-            st.write("1")
+            st.image("./assets/Cover_FFVII.jpg")
         
         with col8:
-            st.write("2")
+            st.image("./assets/Cover_Spider_Man.jpg")
         
         with col9:
-            st.write("3")
+            st.image("./assets/Cover_Overwatch.jpg")
     
     with carrinho:
-        col1,col2 = st.columns([3,1])
+        col1,col2 = st.columns([3,1],gap = "small")
         with col1:
             st.write("Itens")
         
