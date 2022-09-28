@@ -20,6 +20,5 @@ class Carrinho():
         for item in self._itens:
             if objetivo == item:
                 contador += 1
-    def exibir_Itens(self):
-        for item in self._itens:
-            return item
+    def exibir_Itens(self,item):
+            return self._itens[item]

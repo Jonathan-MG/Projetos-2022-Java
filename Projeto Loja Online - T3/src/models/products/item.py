@@ -16,7 +16,7 @@ class Item():
         return self._imagem
     # Faz com que o item print de forma especifica
     def __str__(self) -> str:
-        return self._nome + " - R$ "+ str(self._valor)
+        return self._nome + " ------- R$ "+ str(self._valor)
     # Compara itens
     def __eq__(self, __o: object) -> bool:
         if(isinstance(__o,Item)):

@@ -11,6 +11,8 @@ produtos = [Item("God of War","Pow Pá Morre.",200.00,"./assets/Cover_God_of_War
             Item("Battlefield 2042","Todo bugado.",125.00,"./assets/Cover_Battlefield_2042.jpg"),
             Item("Call of Duty MWII","Foge do Gás.",350.00,"./assets/Cover_COD_MWII.jpg"),
             Item("Cult of the Lamb","Jesus é uma ovelha.",100.00,"./assets/Cover_Cult_of_the_Lamb.jpg"),]
+cart = Carrinho()
+
 
 st.set_page_config(page_title="Snoteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
 
@@ -62,9 +64,7 @@ def check_password():
         return True
 
 if check_password():
-    loja,carrinho = st.tabs(["Loja","Carrinho"])
-    carro = Carrinho()
-    
+    loja,carrinho = st.tabs(["Loja","Carrinho"])    
     with loja:
         st.subheader("Destaques")
         c1,c2,c3 = st.columns(3,gap="small")
@@ -77,20 +77,26 @@ if check_password():
             with i:
                 prod_key_2 = str(var)
                 prod_key = prod_key_1+prod_key_2
-                st.image(produtos[var].get_Imagem(),produtos[var].get_Valor())
-                if st.button("Adicionar ao carrinho",key=prod_key):
-                    carro.adicionar(produtos[var])
+                st.image(produtos[var].get_Imagem(), produtos[var].get_Valor())
+                if st.button("Adicionar ao carrinho", key=prod_key):
+                    cart.adicionar(produtos[var])
                 var += 1
-    
+        cart.adicionar(produtos[1])
+        cart.adicionar(produtos[1])
+        cart.adicionar(produtos[1])
+        cart.adicionar(produtos[1])
     with carrinho:
         col1,col2 = st.columns([2,1],gap = "small")
         with col1:
             st.write("Itens:")
-            st.write(str(carro.exibir_Itens()))
+            i = 0
+            while i < cart.get_Quantidade_Itens():
+                st.write(str(cart.exibir_Itens(i)))
+                i+=1
         with col2:
             st.write("Resumo da Compra:")
-            st.write(str(carro.get_Quantidade_Itens()))
-            st.write(str(carro.get_Valor_Total()))
+            st.write(str(cart.get_Quantidade_Itens()))
+            st.write(str(cart.get_Valor_Total()))
 
 hide_menu_style = """
         <style>
