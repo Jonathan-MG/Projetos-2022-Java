@@ -76,11 +76,12 @@ if check_password():
         var = 0
         for coluna in colunas:
             with coluna:
-                st.image(st.session_state["produtos"][var].get_Imagem(), ("R$ "+ str(st.session_state["produtos"][var].get_Valor())))
-                st.write("Descrição: "+st.session_state["produtos"][var].get_Descricao())
+                st.image(st.session_state["produtos"][var].get_Imagem(), st.session_state["produtos"][var].get_Descricao())
+                st.write("R$ "+ str(st.session_state["produtos"][var].get_Valor()))
                 if st.button("Adicionar ao carrinho", key = st.session_state["produtos"][var].get_Keyword()):
                     st.session_state["carrinho"].adicionar(st.session_state["produtos"][var])
-                var += 1
+                    st.write("Produto adicionado ao carrinho!")
+                var += 1        
     with cart:
         col1,col2,col3 = st.columns([1.5,5,2.5],gap = "small")
         with col1:
@@ -96,10 +97,11 @@ if check_password():
             i = 0
             while i < st.session_state["carrinho"].get_Quantidade_Itens():
                 st.write(str(st.session_state["carrinho"].exibir_Itens(i)))
+                st.text(" ")
                 i+=1
         with col3:
             st.write("Resumo da Compra:")
-            st.write("Quantidade Total: "+str(st.session_state["carrinho"].get_Quantidade_Itens()))
+            st.write("Quant. de itens: "+str(st.session_state["carrinho"].get_Quantidade_Itens()))
             st.write("Valor total: R$ "+str(st.session_state["carrinho"].get_Valor_Total()))
             if st.button("Pagamento",key = ("pagamento")):
                 st.write("Redirecionando...")
