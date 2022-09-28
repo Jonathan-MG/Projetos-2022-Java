@@ -1,5 +1,6 @@
 from random import randint
 from models.products.item import Item
+import numpy as np
 import streamlit as st
 
 produtos = [Item("God of War","Pow Pá Morre.",200.00,"./assets/Cover_God_of_War.jpg"),
@@ -66,45 +67,18 @@ if check_password():
     
     with loja:
         st.subheader("Destaques")
-        col1,col2,col3 = st.columns(3,gap = "small")
-        with col1:
-            st.image("./assets/Cover_COD_MWII.jpg",caption="R$ 350,00")
-            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
-                st.write("Redirecionando...")
-        with col2:
-            st.image("./assets/Cover_Battlefield_2042.jpg",caption="R$ 125,00")
-            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
-                st.write("Redirecionando...")
-        with col3:
-            st.image("./assets/Cover_Cult_of_the_Lamb.jpg",caption="R$ 100,00")
-            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
-                st.write("Redirecionando...")
-        col4,col5,col6 = st.columns(3,gap = "small")
-        with col4:
-            st.image("./assets/Cover_Red_Dead_2.jpg",caption="R$ 75,00")
-            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
-                st.write("Redirecionando...")
-        with col5:
-            st.image("./assets/Cover_GTA_V.jpg",caption="R$ 75,00")
-            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
-                st.write("Redirecionando...")
-        with col6:
-            st.image("./assets/Cover_God_of_War.jpg",caption="R$ 200,00")
-            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
-                st.write("Redirecionando...")
-        col7,col8,col9 = st.columns(3,gap = "small")
-        with col7:
-            st.image("./assets/Cover_FFVII.jpg",caption="R$ 250,00")
-            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
-                st.write("Redirecionando...")
-        with col8:
-            st.image("./assets/Cover_Spider_Man.jpg",caption="R$ 350,00")
-            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
-                st.write("Redirecionando...")
-        with col9:
-            st.image("./assets/Cover_Overwatch.jpg",caption="R$ 100,00")
-            if st.button(label="Adicionar ao carrinho!",key=randint(0,10000)):
-                st.write("Redirecionando...")
+        c1,c2,c3 = st.columns(3,gap="small")
+        c4,c5,c6 = st.columns(3,gap="small")
+        c7,c8,c9 = st.columns(3,gap="small")
+        colunas = [c1,c2,c3,c4,c5,c6,c7,c8,c9]
+        var = 0
+        for i in colunas:
+            with i:
+                st.image(produtos[var].get_Imagem(),produtos[var].get_Valor())
+                var += 1
+                if st.button("Adicionar ao carrinho",key=randint(0,10000)):
+                    st.write("Produto adicionado ao carrinho!")
+                
     with carrinho:
         col1,col2 = st.columns([3,1],gap = "small")
         with col1:
