@@ -1,6 +1,5 @@
-from random import randint
 from models.products.item import Item
-import numpy as np
+from models.cart.carrinho import Carrinho
 import streamlit as st
 
 produtos = [Item("God of War","Pow Pá Morre.",200.00,"./assets/Cover_God_of_War.jpg"),
@@ -64,6 +63,7 @@ def check_password():
 
 if check_password():
     loja,carrinho = st.tabs(["Loja","Carrinho"])
+    carro = Carrinho()
     
     with loja:
         st.subheader("Destaques")
@@ -72,20 +72,25 @@ if check_password():
         c7,c8,c9 = st.columns(3,gap="small")
         colunas = [c1,c2,c3,c4,c5,c6,c7,c8,c9]
         var = 0
+        prod_key_1 = "Produto_"
         for i in colunas:
             with i:
+                prod_key_2 = str(var)
+                prod_key = prod_key_1+prod_key_2
                 st.image(produtos[var].get_Imagem(),produtos[var].get_Valor())
+                if st.button("Adicionar ao carrinho",key=prod_key):
+                    carro.adicionar(produtos[var])
                 var += 1
-                if st.button("Adicionar ao carrinho",key=randint(0,10000)):
-                    st.write("Produto adicionado ao carrinho!")
-                
+    
     with carrinho:
-        col1,col2 = st.columns([3,1],gap = "small")
+        col1,col2 = st.columns([2,1],gap = "small")
         with col1:
-            st.write("Itens")
-        
+            st.write("Itens:")
+            st.write(str(carro.exibir_Itens()))
         with col2:
             st.write("Resumo da Compra:")
+            st.write(str(carro.get_Quantidade_Itens()))
+            st.write(str(carro.get_Valor_Total()))
 
 hide_menu_style = """
         <style>
