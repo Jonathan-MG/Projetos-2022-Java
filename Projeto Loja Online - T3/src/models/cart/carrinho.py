@@ -1,3 +1,5 @@
+# Jonathan Martins Gomes - RA: 20.00862-7
+
 class Carrinho():
     # Método construtor
     def __init__(self):

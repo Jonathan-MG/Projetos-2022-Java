@@ -1,3 +1,5 @@
+# Jonathan Martins Gomes - RA: 20.00862-7
+
 from models.products.item import Item
 from models.cart.carrinho import Carrinho
 import streamlit as st

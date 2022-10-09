@@ -1,3 +1,5 @@
+# Jonathan Martins Gomes - RA: 20.00862-7
+
 class Item():
     # Método construtor
     def __init__(self,nome,descricao,keyword,valor,imagem):
