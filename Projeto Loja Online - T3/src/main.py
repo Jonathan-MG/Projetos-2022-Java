@@ -1,6 +1,5 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
-
-from controllers.user_controller import UserController
+from models.product_model import Produto
 from view.login import *
 from view.loja import *
 
@@ -15,7 +14,5 @@ produtos_db =  [Produto("God of War","Pow Pá Morre.","god_of_war",200.00,"./ass
                 Produto("Cult of the Lamb","Jesus é uma ovelha.","cult_of_the_lamb",100.00,"./assets/Cover_Cult_of_the_Lamb.jpg"),
                 ]
 
-if "users_db" not in st.session_state:
-    st.session_state["users_db"] = UserController()
 if Login():
     Loja(produtos_db)
