@@ -1,7 +1,6 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 from controllers.product_controller import Product_Controller
 from controllers.carrinho import Carrinho
-from models.products.produto import Produto
 import streamlit as st
 
 class Loja:

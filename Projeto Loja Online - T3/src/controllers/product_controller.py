@@ -1,5 +1,5 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
-from models.products.produto import Produto
+from models.product_model import Produto
 
 class Product_Controller():
     def __init__(self) -> None:
