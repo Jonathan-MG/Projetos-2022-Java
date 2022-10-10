@@ -1,8 +1,8 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 
-class Item():
+class Produto():
     # Método construtor
-    def __init__(self,nome,descricao,keyword,valor,imagem):
+    def __init__(self,nome,descricao,keyword,valor,imagem = None):
         self._nome = nome
         self._descricao = descricao
         self._keyword = keyword
@@ -24,6 +24,6 @@ class Item():
         return self._nome + " - R$ "+ str(self._valor)
     # Compara itens
     def __eq__(self, __o: object) -> bool:
-        if(isinstance(__o,Item)):
+        if(isinstance(__o,Produto)):
             return self._nome == __o.get_Nome()
         return False
