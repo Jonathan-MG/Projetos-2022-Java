@@ -1,7 +1,7 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 from models.products.produto import Produto
 
-class Produto_Controller():
+class Product_Controller():
     def __init__(self) -> None:
         self._lista_de_produtos = []
     # Demais métodos da classe
@@ -12,6 +12,8 @@ class Produto_Controller():
         self._lista_de_produtos.append(Aux) 
     def exibir_Produtos(self,produto):
         return self._lista_de_produtos[produto]
+    def get_Produto(self,index):
+        return self._lista_de_produtos[index]
     def get_Quantidade_Produtos(self):
         return len(self._lista_de_produtos)
     def remover(self,produto):
