@@ -3,23 +3,29 @@ import os
         
 def update_user_db(user_db):
     for user in user_db:
-        user_str = f'\n{user.get_Nome()} = "{user.get_Senha()}"'
+        username = user.get_Nome()
+        user_password = user.get_Senha()
+        user_str = f'{username} = "{user_password}"'
         if os.path.exists(".streamlit/secrets.toml"):
-            user_db = open(".streamlit/secrets.toml",'a+')
-            if user_str in user_db.read():
-                return False
-            else: 
-                user_db.write(user_str)
+            user_db = open(".streamlit/secrets.toml",'r')
+            users_db_read = user_db.read()
             user_db.close()
+            if f'{username} =' in users_db_read:
+                return False
+            else:
+                user_db = open(".streamlit/secrets.toml",'a')
+                user_db.write(f'\n{user_str}')
+                user_db.close()
         else:
             user_db = open(".streamlit/secrets.toml",'a')
             user_db.write("[passwords]")
-            user_db.write(user_str)
+            user_db.write(f'\n{user_str}')
             user_db.close()
 
 class UserController():
     def __init__(self) -> None:
         self._users = [User()]
+        update_user_db(self._users)
     def add_user(self, name, email, password):
         Aux = User(name, email, password)
         self._users.append(Aux)
