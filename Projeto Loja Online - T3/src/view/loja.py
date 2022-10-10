@@ -11,6 +11,7 @@ class Loja:
             st.session_state["produtos"] = Product_Controller()
         for produto in produtos_db:
             st.session_state["produtos"].adicionar_a_lista(produto)
+        
         store,cart = st.tabs(["Loja","Carrinho"])    
         with store:
             st.subheader("Destaques")
