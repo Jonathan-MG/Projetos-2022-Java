@@ -1,7 +1,7 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 
 class User():
-    def __init__(self, name, email, password):
+    def __init__(self, name = "admin", email = None, password = "admin"):
         self._name = name
         self._email = email
         self._password = password
