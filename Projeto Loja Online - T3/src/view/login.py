@@ -1,6 +1,7 @@
+# Jonathan Martins Gomes - RA: 20.00862-7
 import streamlit as st
 
-def check_password():
+def Login():
     # Retorna 'True' se o usuário/senha digitada estiver correto.
     st.set_page_config(page_title="Snoteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
     def password_entered():
