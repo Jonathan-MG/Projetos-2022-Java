@@ -1,9 +1,12 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 import streamlit as st
+from controllers.user_controller import UserController
 
+# Retorna 'True' se o usuário/senha digitada estiver correto.
 def Login():
-    # Retorna 'True' se o usuário/senha digitada estiver correto.
     st.set_page_config(page_title="Snoteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
+    if "users_db" not in st.session_state:
+        st.session_state["users_db"] = UserController()
     def password_entered():
         # Checa se o usuário/senha digitado está correto.
         if (
@@ -17,7 +20,6 @@ def Login():
             # del st.session_state["username"]
         else:
             st.session_state["password_correct"] = False
-
     if "password_correct" not in st.session_state:
         # Inicialização, exibe o local para digitação de usuário e senha.
         st.text_input(label="Digite seu E-mail:", key="username")
@@ -30,7 +32,6 @@ def Login():
             if st.button(label="Esqueci a senha"):
                 st.write("Redirecionando...")
         return False
-    
     elif not st.session_state["password_correct"]:
         # Senha incorreta - exibe mensagem de erro e permite digitar novamente.
         st.text_input(label="Digite seu E-mail:", key="username")
@@ -44,7 +45,6 @@ def Login():
                 st.write("Redirecionando...")
         st.error("Usuário/senha incorreto.")
         return False
-    
     else:
         # Se a sennha for correta.
         return True
