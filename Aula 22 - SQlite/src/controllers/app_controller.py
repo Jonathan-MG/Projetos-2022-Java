@@ -42,5 +42,6 @@ class Application:
             item_data = self.item_controller.pegar_item(item.id_item)
             retorno["items"].append({"nome":item_data.nome, "preco": item_data.preco, "quantidade": item.quantidade})
         return retorno
+    
     def fechar_pedido(self):
         return self.pedido_controller.total_pedido(self.cliente_pedido_atual.id_pedido)

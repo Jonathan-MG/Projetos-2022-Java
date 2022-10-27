@@ -1,9 +1,8 @@
 import sqlite3
 from src.models.pedido import Pedido
-class PedidoDAO:
-    
-    _instance = None
 
+class PedidoDAO:
+    _instance = None
     def __init__(self) -> None:
         self._connect()
 

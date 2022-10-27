@@ -1,10 +1,9 @@
 from pickle import FALSE, TRUE
 import sqlite3
 from src.models.item import Item
-class ItemDAO:
-    
-    _instance = None
 
+class ItemDAO:
+    _instance = None
     def __init__(self) -> None:
         self._connect()
 
@@ -63,6 +62,7 @@ class ItemDAO:
         except:
             return False
         return True
+    
     def deletar_item(self, id):
         try:
             self.cursor = self.conn.cursor()
