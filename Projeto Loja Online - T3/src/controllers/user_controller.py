@@ -4,7 +4,7 @@ import os
         
 def update_user_db(user_db):
     for user in user_db:
-        username = user.get_Nome()
+        username = user.get_Username()
         user_password = user.get_Senha()
         user_str = f'{username} = "{user_password}"'
         if os.path.exists(".streamlit/secrets.toml"):
@@ -33,8 +33,8 @@ class UserController():
         update_user_db(self._users)
     def checkUser(self, user):
         return user in self._users
-    def checkLogin(self, name, password):
-        user_teste = User(name = name, password = password, email = None)
+    def checkLogin(self, username, password):
+        user_teste = User(username = username, password = password, email = None)
         for user in self._users:
             if user._name == user_teste._name and user._password == user_teste._password:
                 return True

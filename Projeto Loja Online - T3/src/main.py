@@ -14,5 +14,6 @@ produtos_db =  [Produto("God of War","Pow Pá Morre.","god_of_war",200.00,"./ass
                 Produto("Cult of the Lamb","Jesus é uma ovelha.","cult_of_the_lamb",100.00,"./assets/Cover_Cult_of_the_Lamb.jpg"),
                 ]
 
+st.set_page_config(page_title="Snoteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
 if Login():
     Loja(produtos_db)
