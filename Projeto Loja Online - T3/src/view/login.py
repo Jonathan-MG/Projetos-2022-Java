@@ -1,10 +1,10 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 import streamlit as st
 from controllers.user_controller import UserController
+from view.cadastro import *
 
 # Retorna 'True' se o usuário/senha digitada estiver correto.
-class Login():
-    def __init__(self) -> None:
+def Login():
         if "users_db" not in st.session_state:
             st.session_state["users_db"] = UserController()
         def password_entered():
@@ -30,7 +30,7 @@ class Login():
                     password_entered()
             with col2:
                 if st.button(label="Cadastrar"):
-                    st.write("Redirecionando...")
+                    Cadastro()
             return False
         elif not st.session_state["password_correct"]:
             # Senha incorreta - exibe mensagem de erro e permite digitar novamente.
@@ -42,7 +42,7 @@ class Login():
                     password_entered()
             with col2:
                 if st.button(label="Cadastrar"):
-                    st.write("Redirecionando...")
+                    Cadastro()
             st.error("Usuário/senha incorreto.")
             return False
         else:

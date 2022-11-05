@@ -27,8 +27,8 @@ class UserController():
     def __init__(self) -> None:
         self._users = [User()]
         update_user_db(self._users)
-    def add_user(self, name, email, password):
-        Aux = User(name, email, password)
+    def add_user(self, username, email, password, cpf, birthdate, name):
+        Aux = User(username, email, password, cpf, birthdate, name)
         self._users.append(Aux)
         update_user_db(self._users)
     def checkUser(self, user):
