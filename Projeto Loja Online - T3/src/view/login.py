@@ -4,6 +4,13 @@ from controllers.cadastro_controller import *
 from controllers.user_controller import UserController
 
 # Retorna 'True' se o usuário/senha digitada estiver correto.
+def Teste_User():
+        contador = 0
+        while contador < st.session_state["users_db"].get_Quantidade_User():
+            aux = st.session_state["users_db"].get_Users(contador)
+            st.write(aux)
+            contador += 1
+
 def Login():
     if "users_db" not in st.session_state:
         st.session_state["users_db"] = UserController()
@@ -23,13 +30,6 @@ def Login():
             # del st.session_state["username"]
         else:
             st.session_state["password_correct"] = False
-    
-    def Teste_User():
-        contador = 0
-        while contador < st.session_state["users_db"].get_Quantidade_User():
-            aux = st.session_state["users_db"].get_Users(contador)
-            st.write(aux)
-            contador += 1
     
     login,cadastro = st.tabs(["Página Inicial","Cadastre-se"])
     

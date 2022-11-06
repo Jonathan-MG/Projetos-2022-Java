@@ -1,27 +1,28 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 from models.user_model import User
+import streamlit as st
 import os
         
 def update_user_db(user_db):
+    status_user_update = True
+    login_info = open(".streamlit/secrets.toml",'w')
+    login_info.write("[passwords]")
+    login_info.close()
     for user in user_db:
         username = user.get_Username()
         user_password = user.get_Senha()
         user_str = f'{username} = "{user_password}"'
-        if os.path.exists(".streamlit/secrets.toml"):
-            user_db = open(".streamlit/secrets.toml",'r')
-            users_db_read = user_db.read()
-            user_db.close()
-            if f'{username} =' in users_db_read:
-                print(f'Nome de usuário:{username} já está em uso!')
-            else:
-                user_db = open(".streamlit/secrets.toml",'a')
-                user_db.write(f'\n{user_str}')
-                user_db.close()
+        login_info = open(".streamlit/secrets.toml",'r')
+        login_info_read = login_info.read()
+        login_info.close()
+        if f'{username} =' in login_info_read:
+                st.write(f'Nome de usuário:"{username}" já está em uso!')
+                status_user_update = False
         else:
-            user_db = open(".streamlit/secrets.toml",'a')
-            user_db.write("[passwords]")
-            user_db.write(f'\n{user_str}')
-            user_db.close()
+            login_info = open(".streamlit/secrets.toml",'a')
+            login_info.write(f'\n{user_str}')
+            login_info.close()
+    return status_user_update
 
 class UserController():
     def __init__(self) -> None:
@@ -31,7 +32,7 @@ class UserController():
     def add_user(self, username, email, password, cpf, birthdate, name):
         Aux = User(username, email, password, cpf, birthdate, name)
         self._users.append(Aux)
-        update_user_db(self._users)
+        return update_user_db(self._users)
     
     def get_Users(self,user):
         return self._users[user]

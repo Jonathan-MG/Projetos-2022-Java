@@ -2,6 +2,7 @@
 from controllers.product_controller import Product_Controller
 from controllers.carrinho import Carrinho
 import streamlit as st
+from view.login import *
 
 class Loja:
     def __init__(self,produtos_db):
@@ -12,7 +13,7 @@ class Loja:
         for produto in produtos_db:
             st.session_state["produtos"].adicionar_a_lista(produto)
         
-        store,cart = st.tabs(["Loja","Carrinho"])    
+        store,cart,profile,administration = st.tabs(["Loja","Carrinho","Perfil","Novos Produtos"])    
         with store:
             st.subheader("Destaques")
             c1,c2,c3 = st.columns(3,gap="small")
@@ -51,6 +52,20 @@ class Loja:
                 st.write("Valor total: R$ "+str(st.session_state["carrinho"].get_Valor_Total()))
                 if st.button("Pagamento",key = ("pagamento")):
                     st.write("Redirecionando...")
+                    
+        with profile:
+            current_user = (f'{st.session_state["username"]}')
+            new_user_email = st.text_input("Digite o novo endereço de email:",key="new_user_email")
+            if st.button("Alterar E-mail",key="change_email_button"):
+                st.session_state["users_db"].get_Users(current_user).set_Email(new_user_email)                
+            new_user_password = st.text_input("Digite uma nova senha:",key="new_user_password")
+            if st.button("Alterar Senha",key="change_password_button"):
+                st.session_state["users_db"].get_Users(current_user).set_Senha(new_user_password)
+            if st.button("Teste Users",key="Teste_U2"):
+                Teste_User()   
+        
+        with administration:
+            pass
         
         hide_menu_style = """
         <style>

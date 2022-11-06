@@ -6,13 +6,15 @@ def Cadastro():
         # if not st.session_state["users_db"].checkLogin(new_user,
         #                                                 new_userpassword,
         #                                                 new_useremail):
-        st.session_state["users_db"].add_user(new_user,
+        if st.session_state["users_db"].add_user(new_user,
                                               new_useremail,
                                               new_userpassword,
                                               new_usercpf,
                                               new_userbirth,
-                                              new_username)
-        st.write("Cadastro realizado com sucesso!")
+                                              new_username):
+            st.write("Cadastro realizado com sucesso!")
+        else:
+            st.write("Não foi possível realizar o cadastro, por favor, verifique seus dados.")
     
     new_username = st.text_input(label="Digite seu nome:", key="new_username")
     new_userbirth = st.text_input(label="Digite sua data de nascimento:", key="new_userbirth")
