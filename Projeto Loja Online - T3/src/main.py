@@ -1,7 +1,7 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 from models.product_model import Produto
 from view.loja import *
-from controllers.login_controller import *
+from view.login import *
 
 
 produtos_db =  [Produto("God of War","Pow Pá Morre.","god_of_war",200.00,"./assets/Cover_God_of_War.jpg"),
