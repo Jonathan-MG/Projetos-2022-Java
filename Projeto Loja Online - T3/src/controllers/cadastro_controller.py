@@ -1,10 +1,7 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 import streamlit as st
-from controllers.user_controller import UserController
 
 def Cadastro():
-    if "users_db" not in st.session_state:
-        st.session_state["users_db"] = UserController()
     def Confirma_cadastro():
         # if not st.session_state["users_db"].checkLogin(new_user,
         #                                                 new_userpassword,
