@@ -1,8 +1,8 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 from models.product_model import Produto
-from view.login import *
 from view.loja import *
-from view.cadastro import *
+from view.autenticacao import *
+
 
 produtos_db =  [Produto("God of War","Pow Pá Morre.","god_of_war",200.00,"./assets/Cover_God_of_War.jpg"),
                 Produto("Spider-Man Remastered","Tchi Mari Jane.","spider_man",350.00,"./assets/Cover_Spider_Man.jpg"),
@@ -17,11 +17,7 @@ produtos_db =  [Produto("God of War","Pow Pá Morre.","god_of_war",200.00,"./ass
 
 st.set_page_config(page_title="Snoteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
 
-login_confirmation = Login()
-if login_confirmation == "Cadastro":
-    if Cadastro():
-        Loja(produtos_db)
-elif login_confirmation:
+if Autenticar():
     Loja(produtos_db)
         
     
