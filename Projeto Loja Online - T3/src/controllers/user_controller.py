@@ -33,10 +33,10 @@ class UserController():
         update_user_db(self._users)
     def checkUser(self, user):
         return user in self._users
-    def checkLogin(self, username, password):
-        user_teste = User(username = username, password = password, email = None)
+    def checkLogin(self, username, password, email):
+        user_teste = User(username = username, password = password, email = email)
         for user in self._users:
-            if user._name == user_teste._name and user._password == user_teste._password:
+            if user._username == user_teste._username and user._password == user_teste._password and user._email == user_teste._email:
                 return True
         return False
 

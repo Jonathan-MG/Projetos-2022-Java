@@ -1,7 +1,6 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 import streamlit as st
 from controllers.user_controller import UserController
-from view.cadastro import *
 
 # Retorna 'True' se o usuário/senha digitada estiver correto.
 def Login():
@@ -30,7 +29,7 @@ def Login():
                     password_entered()
             with col2:
                 if st.button(label="Cadastrar"):
-                    Cadastro()
+                    return "Cadastro"
             return False
         elif not st.session_state["password_correct"]:
             # Senha incorreta - exibe mensagem de erro e permite digitar novamente.
@@ -42,7 +41,7 @@ def Login():
                     password_entered()
             with col2:
                 if st.button(label="Cadastrar"):
-                    Cadastro()
+                    return "Cadastro"
             st.error("Usuário/senha incorreto.")
             return False
         else:
