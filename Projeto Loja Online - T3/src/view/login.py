@@ -36,8 +36,8 @@ def Login():
     if (st.session_state["login_true"] != True):
         with cadastro:
             Cadastro()
-            if st.button("Teste Users",key="Teste_U"):
-                Teste_User()
+            # if st.button("Teste Users",key="Teste_U"):
+            #     Teste_User()
     else: 
         with cadastro:
             st.write("Usuário Logado.")

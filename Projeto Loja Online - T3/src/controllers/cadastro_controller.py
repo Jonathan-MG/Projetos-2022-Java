@@ -18,6 +18,6 @@ def Cadastro():
     new_usercpf = st.text_input(label="Digite seu CPF (Apenas números):", key="new_usercpf")
     new_user = st.text_input(label="Digite seu nome de usuário desejado:", key="new_user")
     new_useremail = st.text_input(label="Digite seu E-mail:", key="new_useremail")
-    new_userpassword = st.text_input(label="Digite a senha desejada:", key="new_userpassword")
+    new_userpassword = st.text_input(label="Digite a senha desejada:",type="password", key="new_userpassword")
     if st.button("Cadastrar", key="botao_cadastro"):
         Confirma_cadastro()

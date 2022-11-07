@@ -21,6 +21,7 @@ class User():
         return self._birthdate
     def get_Name(self):
         return self._name
+    
     def set_Username(self, username):
         if self._contador <= 2:
             self._contador += 1
@@ -38,5 +39,5 @@ class User():
     def set_Name(self, name):
         self._name = name
     def __str__(self) -> str:
-        return f'User(Name:{self._name}, Birthdate:{self._birthdate}, CPF:{self._cpf} ,Username:{self._username}, Email:{self._email}, Password:{self._password})'
+        return f'Username:"{self._username}", E-mail:"{self._email}", Senha:"{self._password}", Nome:"{self._name}", Nascimento:"{self._birthdate}", CPF:"{self._cpf}".'
     

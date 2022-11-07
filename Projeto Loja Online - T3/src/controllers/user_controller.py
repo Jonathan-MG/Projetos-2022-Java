@@ -37,16 +37,15 @@ class UserController():
     def get_Users(self,user):
         return self._users[user]
     
+    def get_User(self,username):
+        for user in self._users:
+            if username == user.get_Username():
+                return user
+    
     def get_Quantidade_User(self):
         return len(self._users)
     
     def checkUser(self, user):
         return user in self._users
     
-    def checkLogin(self, username, password, email):
-        user_teste = User(username = username, password = password, email = email)
-        for user in self._users:
-            if user._username == user_teste._username and user._password == user_teste._password and user._email == user_teste._email:
-                return True
-        return False
 
