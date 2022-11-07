@@ -39,7 +39,7 @@ class UserController():
     
     def get_User(self,username):
         for user in self._users:
-            if username == user.get_Username():
+            if (username == user.get_Username()) or (username == user.get_Email()):
                 return user
     
     def get_Quantidade_User(self):
