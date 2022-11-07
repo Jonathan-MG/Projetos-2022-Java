@@ -4,7 +4,8 @@ from view.login import Teste_User
 
 class Profile_Ctrl:
     def __init__(self) -> None:
-        current_user = (f'{st.session_state["username"]}')
+        #current_user = (f'{st.session_state["username"]}')
+        current_user = st.text_input("Digite o Usuário para realizar a alteração:",key="id_user")
         new_user_email = st.text_input("Digite o novo endereço de email:",key="new_user_email")
         if st.button("Alterar E-mail",key="change_email_button"):
             st.session_state["users_db"].get_Users(current_user).set_Email(new_user_email)                
