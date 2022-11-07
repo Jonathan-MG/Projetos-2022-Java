@@ -1,7 +1,8 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
+import streamlit as st
 from models.product_model import Produto
-from view.loja import *
-from view.login import *
+from view.home_page import Home
+from view.login import Login
 
 
 produtos_db =  [Produto("God of War","Pow Pá Morre.","god_of_war",200.00,"./assets/Cover_God_of_War.jpg"),
@@ -18,6 +19,6 @@ produtos_db =  [Produto("God of War","Pow Pá Morre.","god_of_war",200.00,"./ass
 st.set_page_config(page_title="Snoteam",layout="centered",initial_sidebar_state="collapsed",menu_items=None)
 
 if Login():
-    Loja(produtos_db)
+    Home(produtos_db)
         
     

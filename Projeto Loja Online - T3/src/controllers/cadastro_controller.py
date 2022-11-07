@@ -3,9 +3,6 @@ import streamlit as st
 
 def Cadastro():
     def Confirma_cadastro():
-        # if not st.session_state["users_db"].checkLogin(new_user,
-        #                                                 new_userpassword,
-        #                                                 new_useremail):
         if st.session_state["users_db"].add_user(new_user,
                                               new_useremail,
                                               new_userpassword,
