@@ -27,4 +27,4 @@ class Produto():
     
     # Faz com que o item print de forma especifica
     def __str__(self) -> str:
-        return f'Nome: {self._nome} + " - R$ "+ {str(self._valor)}'
+        return f'Nome: {self._nome} - R$ {str(self._valor)}'

@@ -15,10 +15,7 @@ class Store_View:
             
         quant_produtos = 0
         quant_produtos = st.session_state["produtos"].get_Quantidade_Produtos()
-        
         for st.session_state["colunas_aux"] in range(quant_produtos):
-            print(f'Coluna: {st.session_state["colunas_aux"]}')
-            print(f'Quant.: {quant_produtos}')
             with colunas[st.session_state["colunas_aux"]]:
                 st.image(st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Imagem(), st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Descricao())
                 st.write("R$ "+ str(st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Valor()))
