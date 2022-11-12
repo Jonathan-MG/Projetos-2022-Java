@@ -1,4 +1,5 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
+
 from pickle import FALSE, TRUE
 import sqlite3
 from models.product_model import Produto

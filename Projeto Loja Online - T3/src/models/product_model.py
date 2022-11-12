@@ -8,20 +8,27 @@ class Produto():
         self._keyword = keyword
         self._valor = valor
         self._imagem = imagem
+    
     # Getters da classe
     def get_Nome(self):
         return self._nome
+    
     def get_Descricao(self):
         return self._descricao
+    
     def get_Keyword(self):
         return self._keyword
+    
     def get_Valor(self):
         return self._valor
+    
     def get_Imagem(self):
         return self._imagem
+    
     # Faz com que o item print de forma especifica
     def __str__(self) -> str:
         return self._nome + " - R$ "+ str(self._valor)
+    
     # Compara itens
     def __eq__(self, __o: object) -> bool:
         if(isinstance(__o,Produto)):
