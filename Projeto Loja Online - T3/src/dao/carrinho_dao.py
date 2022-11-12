@@ -2,17 +2,15 @@
 
 import sqlite3
 from models.pedido_model import Pedido
-class PedidoDAO:
-    
+class CarrinhoDAO:
     _instance = None
-
     def __init__(self) -> None:
         self._connect()
 
     @classmethod
     def get_instance(cls):
         if cls._instance == None:
-            cls._instance = PedidoDAO()
+            cls._instance = CarrinhoDAO()
         return cls._instance
 
     def _connect(self):
@@ -54,6 +52,7 @@ class PedidoDAO:
         """)
         self.conn.commit()
         self.cursor.close()
+    
     def pegar_pedido(self, numero_pedido):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
@@ -71,7 +70,6 @@ class PedidoDAO:
         self.cursor.close()
         return resultados
     
-    #TODO
     def atualizar_pedido(self, pedido):
         try:
             self.cursor = self.conn.cursor()
@@ -88,7 +86,6 @@ class PedidoDAO:
             return False
         return True
     
-    #TODO
     def deletar_pedido(self, id):
         try:
             self.cursor = self.conn.cursor()

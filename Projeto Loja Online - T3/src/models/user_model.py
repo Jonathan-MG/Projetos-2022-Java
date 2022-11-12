@@ -1,7 +1,12 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 
 class User():
-    def __init__(self, username = "admin", email = None, password = "admin", cpf = None, birthdate = None, name = "Admin"):
+    def __init__(self, username = "admin", 
+                 email = None, 
+                 password = "admin", 
+                 cpf = None, 
+                 birthdate = None, 
+                 name = "Admin"):
         self._username = username
         self._email = email
         self._password = password
@@ -19,10 +24,10 @@ class User():
     def get_Senha(self):
         return self._password
     
-    def get_cpf(self):
+    def get_Cpf(self):
         return self._cpf
     
-    def get_birthdate(self):
+    def get_Birthdate(self):
         return self._birthdate
     
     def get_Name(self):
@@ -41,10 +46,10 @@ class User():
     def set_Senha(self, password):
         self._password = password
     
-    def set_cpf(self, cpf):
+    def set_Cpf(self, cpf):
         self._cpf = cpf
     
-    def set_birthdate(self, birthdate):
+    def set_Birthdate(self, birthdate):
         self._birthdate = birthdate
     
     def set_Name(self, name):

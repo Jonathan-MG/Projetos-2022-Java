@@ -5,7 +5,6 @@ import sqlite3
 from models.product_model import Produto
 class Produto_DAO:    
     _instance = None
-
     def __init__(self) -> None:
         self._connect()
 
@@ -26,20 +25,24 @@ class Produto_DAO:
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
-            resultados.append(Produto(nome=resultado[0],
-                                      descricao=resultado[1],
-                                      keyword=resultado[2],
-                                      valor=resultado[3],
-                                      imagem= resultado[4]))
+            resultados.append(Produto(keyword = resultado[0],
+                                      nome = resultado[1],
+                                      descricao = resultado[2],
+                                      valor = resultado[3],
+                                      imagem = resultado[4]))
         self.cursor.close()
         return resultados
     
     def inserir_item(self, item):
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
-            INSERT INTO Jogos (id, nome, preco)
-            VALUES(?,?,?);
-        """, (item.id, item.nome, item.preco))
+            INSERT INTO Jogos (id, nome, descricao, preco, imagem)
+            VALUES(?,?,?,?,?);
+        """, (item.get_Keyword(), 
+              item.get_Nome(), 
+              item.get_Descricao(), 
+              item.get_Valor(), 
+              item.get_Imagem()))
         self.conn.commit()
         self.cursor.close()
     
@@ -52,11 +55,11 @@ class Produto_DAO:
         item = None
         resultado = self.cursor.fetchone()
         if resultado != None:
-            item = Produto(nome=resultado[0],
-                           descricao=resultado[1],
-                           keyword=resultado[2],
-                           valor=resultado[3],
-                           imagem= resultado[4])
+            item = Produto(keyword = resultado[0],
+                           nome = resultado[1],
+                           descricao = resultado[2],
+                           valor = resultado[3],
+                           imagem = resultado[4])
         self.cursor.close()
         return item
 
@@ -65,9 +68,9 @@ class Produto_DAO:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
                 UPTADE Jogos SET
-                nome = '{item.nome}'
-                preco = {item.preco}
-                WHERE id = '{item.id}'
+                nome = '{item.get_Nome()}'
+                preco = {item.get_Valor()}
+                WHERE id = '{item.get_Keyword()}'
             """)
             self.conn.commit()
             self.cursor.close()
@@ -96,10 +99,10 @@ class Produto_DAO:
         """)
         resultados = []
         for resultado in self.cursor.fetchall():
-            resultados.append(Produto(nome=resultado[0],
-                                      descricao=resultado[1],
-                                      keyword=resultado[2],
-                                      valor=resultado[3],
-                                      imagem= resultado[4]))
+            resultados.append(Produto(keyword = resultado[0],
+                                      nome = resultado[1],
+                                      descricao = resultado[2],
+                                      valor = resultado[3],
+                                      imagem = resultado[4]))
         self.cursor.close()
         return resultados
