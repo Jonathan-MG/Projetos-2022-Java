@@ -1,9 +1,12 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 from models.product_model import Produto
+from dao.produto_dao import Produto_DAO
+import base64
 
 class Product_Ctrl():
     def __init__(self) -> None:
-        self._lista_de_produtos = []
+        self.product_db = Produto_DAO()
+        self._lista_de_produtos = self.product_db.get_all()
     
     # Demais métodos da classe
     def adicionar_a_lista(self,produto):
@@ -11,8 +14,10 @@ class Product_Ctrl():
             self._lista_de_produtos.append(produto)
     
     def criar_novo_produto(self,nome,descricao,keyword,valor,imagem):
-        Aux = Produto(nome,descricao,keyword,valor,imagem)  
-        self._lista_de_produtos.append(Aux) 
+        bin_string = base64.b64encode(imagem.getvalue())
+        construct_img = base64.b64decode((bin_string))
+        Aux = Produto(nome,descricao,keyword,valor,construct_img)  
+        self.product_db.inserir_item(Aux) 
     
     def exibir_Produtos(self,produto):
         return self._lista_de_produtos[produto]
@@ -24,5 +29,4 @@ class Product_Ctrl():
         return len(self._lista_de_produtos)
     
     def remover(self,produto):
-        if produto in self._lista_de_produtos:
-            self._lista_de_produtos.remove(produto)
+        return self.product_db.deletar_item(produto)

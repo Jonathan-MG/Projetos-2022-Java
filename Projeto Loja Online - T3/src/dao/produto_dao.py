@@ -46,7 +46,8 @@ class Produto_DAO:
         self.conn.commit()
         self.cursor.close()
     
-    def pegar_item(self, id):
+    def pegar_item(self, produto):
+        id = produto.get_Keyword()
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
             SELECT * FROM Jogos
@@ -78,7 +79,8 @@ class Produto_DAO:
             return False
         return True
     
-    def deletar_item(self, id):
+    def deletar_item(self, produto):
+        id = produto.get_Keyword()
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""

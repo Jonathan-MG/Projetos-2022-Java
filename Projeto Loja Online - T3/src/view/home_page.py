@@ -8,13 +8,10 @@ from view.profile_view import Profile_View
 from view.admin_view import Admin_View
 
 class Home:
-    def __init__(self,produtos_db):
+    def __init__(self):
         if "carrinho" not in st.session_state:
             st.session_state["carrinho"] = Carrinho_Ctrl()
         st.session_state["produtos"] = Product_Ctrl()
-        
-        for produto in produtos_db:
-            st.session_state["produtos"].adicionar_a_lista(produto)
         
         store,cart,profile,administration = st.tabs(["Loja","Carrinho","Perfil","Novos Produtos"])    
         with store:

@@ -17,5 +17,5 @@ class Admin_View:
                                                             new_product_description,
                                                             new_product_keyword,
                                                             float(new_product_value),
-                                                            base64.b64encode(new_product_image.getvalue()))
+                                                            new_product_image)
             st.write("Cadastro realizado com sucesso!")
