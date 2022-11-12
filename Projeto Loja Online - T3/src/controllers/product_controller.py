@@ -6,7 +6,8 @@ class Product_Controller():
         self._lista_de_produtos = []
     # Demais métodos da classe
     def adicionar_a_lista(self,produto):
-        self._lista_de_produtos.append(produto)
+        if produto not in self._lista_de_produtos:
+            self._lista_de_produtos.append(produto)
     def criar_novo_produto(self,nome,descricao,keyword,valor,imagem):
         Aux = Produto(nome,descricao,keyword,valor,imagem)  
         self._lista_de_produtos.append(Aux) 
