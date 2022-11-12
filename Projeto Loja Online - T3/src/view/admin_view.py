@@ -1,7 +1,7 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 import streamlit as st
 
-class Admin_Ctrl:
+class Admin_View:
     def __init__(self) -> None:        
         new_product_name = st.text_input("Digite o nome do produto:",key="new_prod_name")               
         new_product_description = st.text_input("Digite uma descrição do produto:",key="new_prod_description")
@@ -10,6 +10,7 @@ class Admin_Ctrl:
         new_product_image = st.file_uploader("Carrega uma imagem de Capa.",
                                              key="new_prod_img",
                                              accept_multiple_files=False)
+        
         if st.button("Cadastrar Produto",key="new_prod_button"):
             st.session_state["produtos"].criar_novo_produto(new_product_name,
                                                             new_product_description,

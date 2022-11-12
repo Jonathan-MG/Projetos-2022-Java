@@ -1,7 +1,7 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 import streamlit as st
 
-class Cart_Ctrl:
+class Cart_View:
     def __init__(self) -> None:
         col1,col2,col3 = st.columns([1.5,5,2.5],gap = "small")
         with col1:

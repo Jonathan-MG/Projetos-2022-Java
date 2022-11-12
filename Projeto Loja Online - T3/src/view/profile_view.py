@@ -2,7 +2,7 @@
 import streamlit as st
 # from view.login import Teste_User
 
-class Profile_Ctrl:
+class Profile_View:
     def __init__(self) -> None:
         if "userlogged" not in st.session_state:
             st.session_state["userlogged"] = st.session_state["username"]

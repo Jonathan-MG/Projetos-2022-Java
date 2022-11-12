@@ -1,30 +1,30 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 import streamlit as st
-from controllers.product_controller import Product_Controller
-from controllers.carrinho import Carrinho
-from controllers.store_controller import Store_Ctrl
-from controllers.cart_controller import Cart_Ctrl
-from controllers.profile_controller import Profile_Ctrl
-from controllers.admin_controller import Admin_Ctrl
+from controllers.product_controller import Product_Ctrl
+from controllers.carrinho_controller import Carrinho_Ctrl
+from view.store_view import Store_View
+from view.cart_view import Cart_View
+from view.profile_view import Profile_View
+from view.admin_view import Admin_View
 
 class Home:
     def __init__(self,produtos_db):
         if "carrinho" not in st.session_state:
-            st.session_state["carrinho"] = Carrinho()
-        st.session_state["produtos"] = Product_Controller()
+            st.session_state["carrinho"] = Carrinho_Ctrl()
+        st.session_state["produtos"] = Product_Ctrl()
         
         for produto in produtos_db:
             st.session_state["produtos"].adicionar_a_lista(produto)
         
         store,cart,profile,administration = st.tabs(["Loja","Carrinho","Perfil","Novos Produtos"])    
         with store:
-            Store_Ctrl()
+            Store_View()
         with cart:
-            Cart_Ctrl()
+            Cart_View()
         with profile:
-            Profile_Ctrl()
+            Profile_View()
         with administration:
-            Admin_Ctrl()
+            Admin_View()
         
         hide_menu_style = """
         <style>
