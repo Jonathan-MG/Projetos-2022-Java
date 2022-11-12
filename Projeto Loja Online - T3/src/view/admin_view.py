@@ -1,5 +1,6 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 import streamlit as st
+import base64
 
 class Admin_View:
     def __init__(self) -> None:        
@@ -16,5 +17,5 @@ class Admin_View:
                                                             new_product_description,
                                                             new_product_keyword,
                                                             float(new_product_value),
-                                                            new_product_image)
+                                                            base64.b64encode(new_product_image.getvalue()))
             st.write("Cadastro realizado com sucesso!")
