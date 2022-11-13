@@ -1,7 +1,16 @@
-from dao.produto_dao import Produto_DAO
-from models.product_model import Produto
+# from dao.produto_dao import Produto_DAO
+# from models.product_model import Produto
+# from models.user_model import User
+# from dao.user_dao import User_DAO
 
-db = Produto_DAO()
+
+
+
+# user_db = User_DAO()
+# aux = User("admin","admin","admin",None,None,"admin")
+# user_db.inserir_usuario(aux)
+
+# db = Produto_DAO()
 # produtos_db =  [Produto("God of War","Pow Pá Morre.",
 #                         "god_of_war",
 #                         200.00,
@@ -55,13 +64,11 @@ db = Produto_DAO()
 #                         100.00,
 #                         "./assets/Cover_Cult_of_the_Lamb.jpg",
 #                         True)]
-
 # for produto in produtos_db:
 #     db.inserir_item(produto)
-
-produtos_db = db.get_all()
-for produto in produtos_db:
-        # print(produto)
-        decodeit = open(f'./teste_img/{produto.get_Nome()}.jpeg', 'wb')
-        decodeit.write(produto.get_Imagem())
-        decodeit.close()
+# produtos_db = db.get_all()
+# for produto in produtos_db:
+#         print(produto)
+#         decodeit = open(f'./teste_img/{produto.get_Nome()}.jpeg', 'wb')
+#         decodeit.write(produto.get_Imagem())
+#         decodeit.close()

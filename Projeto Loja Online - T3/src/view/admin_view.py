@@ -13,9 +13,11 @@ class Admin_View:
                                              accept_multiple_files=False)
         
         if st.button("Cadastrar Produto",key="new_prod_button"):
-            st.session_state["produtos"].criar_novo_produto(new_product_name,
+            if st.session_state["produtos"].criar_novo_produto(new_product_name,
                                                             new_product_description,
                                                             new_product_keyword,
                                                             float(new_product_value),
-                                                            new_product_image)
-            st.write("Cadastro realizado com sucesso!")
+                                                            new_product_image):
+                st.write("Produto cadastrado com sucesso no banco de dados!")
+            else:
+                st.write("Não foi possível realizar o cadastro, favor verificar se o produto já não existe no sistema!")

@@ -1,7 +1,9 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 
+from pickle import FALSE, TRUE
 import sqlite3
 from models.user_model import User
+
 class User_DAO:    
     _instance = None
     def __init__(self) -> None:
@@ -33,13 +35,13 @@ class User_DAO:
         self.cursor.close()
         return resultados
 
-    def inserir_usuario(self, usuario):
+    def inserir_usuario(self,usuario):
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
             INSERT INTO Usuarios (username, name, email, password, cpf, birthdate)
             VALUES(?,?,?,?,?,?);
         """, (usuario.get_Username(), 
-              usuario.get_name(), 
+              usuario.get_Name(), 
               usuario.get_Email(), 
               usuario.get_Senha(), 
               usuario.get_Cpf(), 
@@ -47,11 +49,10 @@ class User_DAO:
         self.conn.commit()
         self.cursor.close()
         
-    def pegar_usuario(self, username):
+    def pegar_usuario(self,username):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
-            SELECT * FROM Usuarios
-            WHERE username = '{username}';
+            SELECT * FROM Usuarios WHERE username == '{username}';
         """)
         item = None
         resultado = self.cursor.fetchone()
@@ -65,14 +66,13 @@ class User_DAO:
         self.cursor.close()
         return item
     
-    def atualizar_usuario(self, usuario):
+    def atualizar_usuario(self,usuario):
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                UPTADE Usuarios SET
-                email = '{usuario.get_Email()}'
-                password = {usuario.get_Senha()}
-                WHERE id = '{usuario.get_Username()}'
+                UPDATE Usuarios 
+                SET email = '{usuario.get_Email()}', password = '{usuario.get_Senha()}'
+                WHERE username == '{usuario.get_Username()}';
             """)
             self.conn.commit()
             self.cursor.close()
@@ -84,8 +84,7 @@ class User_DAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                DELETE from Usuarios 
-                WHERE id = '{username}'
+                DELETE from Usuarios WHERE id == '{username}';
             """)
             self.conn.commit()
             self.cursor.close()

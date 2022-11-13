@@ -1,12 +1,12 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 
 class User():
-    def __init__(self, username = "admin", 
-                 email = None, 
-                 password = "admin", 
-                 cpf = None, 
-                 birthdate = None, 
-                 name = "Admin"):
+    def __init__(self, username, 
+                 email, 
+                 password, 
+                 cpf, 
+                 birthdate, 
+                 name):
         self._username = username
         self._email = email
         self._password = password
@@ -33,27 +33,11 @@ class User():
     def get_Name(self):
         return self._name
     
-    def set_Username(self, username):
-        if self._contador <= 2:
-            self._contador += 1
-            self._username = username
-        else:
-            return f'Número máximo de alterações atingido, não foi possível alterar o nome do usuário!'
-    
     def set_Email(self, email):
         self._email = email
     
     def set_Senha(self, password):
         self._password = password
-    
-    def set_Cpf(self, cpf):
-        self._cpf = cpf
-    
-    def set_Birthdate(self, birthdate):
-        self._birthdate = birthdate
-    
-    def set_Name(self, name):
-        self._name = name
     
     def __str__(self) -> str:
         return f'Username:"{self._username}", E-mail:"{self._email}", Senha:"{self._password}", Nome:"{self._name}", Nascimento:"{self._birthdate}", CPF:"{self._cpf}".'

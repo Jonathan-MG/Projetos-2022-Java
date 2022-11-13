@@ -3,6 +3,7 @@
 from pickle import FALSE, TRUE
 import sqlite3
 from models.product_model import Produto
+
 class Produto_DAO:    
     _instance = None
     def __init__(self) -> None:
@@ -50,8 +51,7 @@ class Produto_DAO:
         id = produto.get_Keyword()
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
-            SELECT * FROM Jogos
-            WHERE id = '{id}';
+            SELECT * FROM Jogos WHERE id == '{id}';
         """)
         item = None
         resultado = self.cursor.fetchone()
@@ -68,10 +68,9 @@ class Produto_DAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                UPTADE Jogos SET
-                nome = '{item.get_Nome()}'
-                preco = {item.get_Valor()}
-                WHERE id = '{item.get_Keyword()}'
+                UPDATE Jogos 
+                SET nome = '{item.get_Nome()}', preco = '{item.get_Valor()}'
+                WHERE id == '{item.get_Keyword()}';
             """)
             self.conn.commit()
             self.cursor.close()
@@ -84,8 +83,7 @@ class Produto_DAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                DELETE from Jogos 
-                WHERE id = '{id}'
+                DELETE from Jogos WHERE id == '{id}';
             """)
             self.conn.commit()
             self.cursor.close()
@@ -96,8 +94,7 @@ class Produto_DAO:
     def search_all_for_name(self, nome):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
-            SELECT * FROM Jogos
-            WHERE nome LIKE '{nome}%' ;
+            SELECT * FROM Jogos WHERE nome LIKE '{nome}%';
         """)
         resultados = []
         for resultado in self.cursor.fetchall():

@@ -1,19 +1,11 @@
 # Jonathan Martins Gomes - RA: 20.00862-7
 import streamlit as st
-from controllers.cadastro_controller import *
+from view.cadastro_view import Cadastro
 from controllers.user_controller import UserController
 
 # Retorna 'True' se o usuário/senha digitada estiver correto.
-def Teste_User():
-        contador = 0
-        while contador < st.session_state["users_db"].get_Quantidade_User():
-            aux = st.session_state["users_db"].get_Users(contador)
-            st.write(aux)
-            contador += 1
-
 def Login():
-    if "users_db" not in st.session_state:
-        st.session_state["users_db"] = UserController()
+    st.session_state["users_db"] = UserController()
     if "login_true" not in st.session_state:
         st.session_state["login_true"] = False
     
@@ -36,8 +28,6 @@ def Login():
     if (st.session_state["login_true"] != True):
         with cadastro:
             Cadastro()
-            # if st.button("Teste Users",key="Teste_U"):
-            #     Teste_User()
     else: 
         with cadastro:
             st.write("Usuário Logado.")
