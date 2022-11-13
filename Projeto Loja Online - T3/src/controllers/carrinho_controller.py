@@ -17,13 +17,13 @@ class Carrinho_Ctrl():
             total += produto.get_Valor()
         return total
     
+    def exibir_tudo(self):
+        for item in self._carrinho:
+            print(item)
+    
     def get_Quantidade_Produtos(self):
         return len(self._carrinho)
     
     def remover(self,produto):
         if produto in self._carrinho:
             self._carrinho.remove(produto)
-            
-    def __str__(self) -> str:
-        for iten in self._carrinho:
-            print(iten)
