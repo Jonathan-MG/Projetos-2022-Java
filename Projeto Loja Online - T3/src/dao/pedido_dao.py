@@ -2,7 +2,7 @@
 
 import sqlite3
 from models.pedido_model import Pedido
-class CarrinhoDAO:
+class PedidoDAO:
     _instance = None
     def __init__(self) -> None:
         self._connect()
@@ -10,7 +10,7 @@ class CarrinhoDAO:
     @classmethod
     def get_instance(cls):
         if cls._instance == None:
-            cls._instance = CarrinhoDAO()
+            cls._instance = PedidoDAO()
         return cls._instance
 
     def _connect(self):

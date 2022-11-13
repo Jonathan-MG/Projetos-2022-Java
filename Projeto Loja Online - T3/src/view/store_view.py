@@ -13,7 +13,6 @@ class Store_View:
         if "colunas_aux" not in st.session_state:
             st.session_state["colunas_aux"] = 0
             
-        quant_produtos = 0
         quant_produtos = st.session_state["produtos"].get_Quantidade_Produtos()
         for st.session_state["colunas_aux"] in range(quant_produtos):
             with colunas[st.session_state["colunas_aux"]]:

@@ -23,3 +23,7 @@ class Carrinho_Ctrl():
     def remover(self,produto):
         if produto in self._carrinho:
             self._carrinho.remove(produto)
+            
+    def __str__(self) -> str:
+        for iten in self._carrinho:
+            print(iten)
