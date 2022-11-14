@@ -19,6 +19,9 @@ class Store_View:
                 st.image(st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Imagem(), st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Descricao())
                 st.write("R$ "+ str(st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Valor()))
                 if st.button("Adicionar ao carrinho", key = st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]).get_Keyword()+str(st.session_state["colunas_aux"])):
-                    st.session_state["carrinho"].adicionar(st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"]))
-                    st.write("Produto adicionado ao carrinho!")
+                    if st.session_state["carrinho"].adicionar(st.session_state["produtos"].get_Produto(st.session_state["colunas_aux"])):
+                        st.write("Produto adicionado ao carrinho!")
+                    else:
+                        st.write("O produto já está no carrinho!")
+                        
                 

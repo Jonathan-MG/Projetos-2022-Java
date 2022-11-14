@@ -6,7 +6,11 @@ class Carrinho_Ctrl():
     
     # Demais métodos da classe
     def adicionar(self,produto):
-        self._carrinho.append(produto)    
+        for item in self._carrinho:
+            if produto.get_Nome() == item.get_Nome():
+                return False
+        self._carrinho.append(produto)  
+        return True  
     
     def exibir_Produtos(self,produto):
         return self._carrinho[produto]
@@ -18,8 +22,10 @@ class Carrinho_Ctrl():
         return total
     
     def exibir_tudo(self):
+        resultado = []
         for item in self._carrinho:
-            print(item)
+            resultado.append(item.get_Nome())
+        return resultado
     
     def get_Quantidade_Produtos(self):
         return len(self._carrinho)

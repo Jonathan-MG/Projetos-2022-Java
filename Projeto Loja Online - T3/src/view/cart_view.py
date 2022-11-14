@@ -23,7 +23,9 @@ class Cart_View:
             st.write("Quant. de Produtos: "+str(st.session_state["carrinho"].get_Quantidade_Produtos()))
             st.write("Valor total: R$ "+str(st.session_state["carrinho"].get_Valor_Total()))
             if st.button("Pagamento",key = ("pagamento")):
-                st.session_state["pedido"].inserir_pedido(st.session_state["userlogged"],
+                if st.session_state["pedido"].inserir_pedido(st.session_state["userlogged"],
                                                           st.session_state["carrinho"],
-                                                          datetime.today().strftime("%d/%m/%Y"))
-                st.write("Redirecionando...")
+                                                          datetime.today().strftime("%d/%m/%Y")):
+                    st.write("Deu tudo certo, mas a próxima página ainda não existe....")
+                else:
+                    st.write("Não foi possível concluir seu pedido!")
