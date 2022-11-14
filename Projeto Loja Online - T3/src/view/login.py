@@ -35,7 +35,9 @@ def Login():
     with login:
         if "password_correct" not in st.session_state:
             # Inicialização, exibe o local para digitação de usuário e senha.
-            st.text_input(label="Digite seu E-mail:", key="username")
+            st.text_input(label="Digite seu Usuário:", 
+                          key="username", 
+                          placeholder = "Digite seu usuário ou email(não incluir do '@' para frente).")
             st.text_input(label="Digite sua Senha:", type="password", key="password")  
             if st.button(label="Login"):
                 password_entered()
@@ -43,7 +45,9 @@ def Login():
         
         elif not st.session_state["password_correct"]:
             # Senha incorreta - exibe mensagem de erro e permite digitar novamente.
-            st.text_input(label="Digite seu E-mail:", key="username")
+            st.text_input(label="Digite seu Usuário:", 
+                          key="username",
+                          placeholder = "Digite seu usuário ou email(não incluir do '@' para frente).")
             st.text_input(label="Digite sua Senha:", type="password", key="password")  
             if st.button(label="Login"):
                 password_entered()

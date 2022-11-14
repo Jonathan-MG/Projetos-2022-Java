@@ -14,7 +14,7 @@ class Profile_View:
             else:
                 st.write("Não foi possível realizar a troca de e-mail, verifique seus dados!")                
         
-        new_user_password = st.text_input("Digite uma nova senha:",key="new_user_password")
+        new_user_password = st.text_input("Digite uma nova senha:",key="new_user_password",type='password')
         if st.button("Alterar Senha",key="change_password_button"):
             if st.session_state["users_db"].update_user(current_user, "password", new_user_password):
                 st.write("Troca de senha realizada com sucesso!")

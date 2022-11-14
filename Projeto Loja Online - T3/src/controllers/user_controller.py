@@ -10,14 +10,14 @@ def update_user_secrets(user_db):
     login_info.close()
     for user in user_db:
         username = user.get_Username()
-        email = user.get_Email()
+        email = user.get_Email().split("@")
         user_password = user.get_Senha()
         user_str = f'{username} = "{user_password}"'
-        email_str = f'{email} = "{user_password}"'
+        email_str = f'{email[0]} = "{user_password}"'
         login_info = open(".streamlit/secrets.toml",'r')
         login_info_read = login_info.read()
         login_info.close()
-        if (f'{username} =' in login_info_read) or (f'{email} =' in login_info_read):
+        if (f'{username} =' in login_info_read) or (f'{email[0]} =' in login_info_read):
                 st.write(f'Username/E-mail já está em uso!')
                 status_user_update = False
         else:
