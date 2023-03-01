@@ -1,4 +1,0 @@
-Kalli
-Fedora
-Windows
-MacOS
